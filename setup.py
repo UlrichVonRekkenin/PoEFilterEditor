@@ -32,16 +32,16 @@ setup(
                 'Shortcut': [(
                     'DesktopShortcut',
                     'DesktopFolder',
-                    'Tool',
+                    'PoE Filter Lazy Editor', #  Name
                     'TARGETDIR',
                     '[TARGETDIR]\PoE Easy Filter Script Editor.exe',
                     None,
                     None,
                     None,
+                    'poe.png', #  icon? (None)
                     None,
                     None,
-                    None,
-                    'TARGETDIR'
+                    'TARGETDIR' #  WkDir
                 )]
             }
         },
@@ -53,8 +53,6 @@ setup(
             script='main.pyw',
             excludes=['tkinter', 'QtSql', 'QtSvg', 'QtTest', 'QtWebKit', 'QtXml'],
             compress=True,
-            shortcutDir='DesktopFolder',
-            shortcutName='PoE Filter Lazy Editor',
             base=base
         )
     ]
