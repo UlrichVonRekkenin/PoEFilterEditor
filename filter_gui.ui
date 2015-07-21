@@ -11,11 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Path of Exile Filter Script Editor v1.0</string>
+   <string>Path of Exile Filter Script Editor v1.0.2</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources/recource.qrc">
-    <normaloff>:/newPrefix/poe.png</normaloff>:/newPrefix/poe.png</iconset>
+   <iconset>
+    <normaloff>poe.png</normaloff>poe.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
