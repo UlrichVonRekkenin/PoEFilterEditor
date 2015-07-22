@@ -1,11 +1,8 @@
-import sys
-import os
 import json
+import os
+import sys
 
-from PyQt4 import uic
-from PyQt4 import Qt
-from PyQt4 import QtGui
-from PyQt4 import QtCore
+from PyQt4 import Qt, QtCore, QtGui, uic
 
 # www.pathofexile.com/item-data/weapon
 # from poe.trade source
@@ -120,16 +117,23 @@ class PoEFilterGUI(QtGui.QDialog):
 
             print('loading config.json file: ', self.Config)
 
-            self.docPath = self.Config['docPath']
-
             self.setGeometry(
                 QtCore.QRect(
-                    *self.Config['Geometry']
+                    *self.Config['geo']
                 )
             )
 
         else:
-            self.docPath = 'Documents'
+            print('There is no "config.json" file...')
+
+            self.Config = {'path': os.path.expanduser(
+                os.path.join(
+                    '~',
+                    'Documents',
+                    'My Games',
+                    'Path of Exile'
+                )
+            )}
 
             screen = QtGui.QDesktopWidget().screenGeometry()
             self.move(
@@ -137,17 +141,16 @@ class PoEFilterGUI(QtGui.QDialog):
                 (screen.height() - self.height()) / 2,
             )
 
-        self.MyDocPath = os.path.expanduser(
-            os.path.join('~', self.docPath, 'My Games', 'Path of Exile')
-        )
-        if not os.path.exists(self.MyDocPath):
-            os.makedirs(self.MyDocPath)
+        if not os.path.exists(self.Config['path']):
+            os.makedirs(self.Config['path'])
 
     def closeEvent(self, event):
         print('close event...')
+
         with open('config.json', 'w') as output:
-            self.Config['Geometry'] = self.geometry().getRect()
+            self.Config['geo'] = self.geometry().getRect()
             print('working with config.json file, ', self.Config)
+
             json.dump(
                 self.Config,
                 output
@@ -192,7 +195,7 @@ class PoEFilterGUI(QtGui.QDialog):
         fileName = QtGui.QFileDialog.getOpenFileName(
             self,
             'Load previusly *.json, *.filter filter',
-            self.MyDocPath,
+            self.Config['path'],
             'PoE filter files (*.filter);; JSON file (*.json)'
         )
 
@@ -247,7 +250,7 @@ class PoEFilterGUI(QtGui.QDialog):
         fileName = QtGui.QFileDialog.getSaveFileName(
             self,
             'Save filter as *.json',
-            self.MyDocPath,
+            self.Config['path'],
             'JSON file (*.json)'
         )
 
@@ -418,7 +421,7 @@ class PoEFilterGUI(QtGui.QDialog):
 
     def Generate(self):
         self.textEdit.clear()
-        self.textEdit.insertPlainText(self.filter.__str__())
+        self.textEdit.insertPlainText(str(self.filter))
 
 
 class PoEFilter():
@@ -441,7 +444,7 @@ class PoEFilter():
     def delete(self, index):
         del self.Items[index]
 
-    def __str__(self):
+    def __repr__(self):
         str = ''
 
         for i, d in enumerate(self.Items, start=1):
