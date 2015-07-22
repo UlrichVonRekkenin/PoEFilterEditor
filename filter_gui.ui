@@ -10,12 +10,18 @@
     <height>661</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>600</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>Path of Exile Filter Script Editor v1.0.2</string>
+   <string>Path of Exile Filter Script Editor v1.0.3</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>poe.png</normaloff>poe.png</iconset>
+    <normaloff>poe.ico</normaloff>poe.ico</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -44,7 +50,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Load...</string>
+          <string>Load (Ctrl+O)...</string>
          </property>
          <property name="shortcut">
           <string>Ctrl+O</string>
@@ -60,7 +66,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Save...</string>
+          <string>Save (Ctrl+S)...</string>
          </property>
          <property name="shortcut">
           <string>Ctrl+S</string>
@@ -603,7 +609,7 @@
        <item>
         <widget class="QPushButton" name="btnAdd">
          <property name="text">
-          <string>Add Item</string>
+          <string>Add Item (Ctrl+A)</string>
          </property>
          <property name="shortcut">
           <string>Ctrl+A</string>
@@ -613,7 +619,7 @@
        <item>
         <widget class="QPushButton" name="btnUpdate">
          <property name="text">
-          <string>Update Item</string>
+          <string>Update Item (Ctrl+U)</string>
          </property>
          <property name="shortcut">
           <string>Ctrl+R</string>
@@ -623,7 +629,7 @@
        <item>
         <widget class="QPushButton" name="btnDel">
          <property name="text">
-          <string>Delete Item</string>
+          <string>Delete Item (Ctrl+D)</string>
          </property>
          <property name="shortcut">
           <string>Ctrl+D</string>
@@ -647,7 +653,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Generate</string>
+        <string>Generate (Ctrl+Enter)</string>
        </property>
        <property name="shortcut">
         <string>Ctrl+Enter</string>
@@ -706,7 +712,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Find</string>
+          <string>Find (Ctrl+F)</string>
          </property>
          <property name="shortcut">
           <string>Ctrl+F</string>
@@ -722,7 +728,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Next</string>
+          <string>Next (F3)</string>
          </property>
          <property name="shortcut">
           <string>F3</string>
@@ -777,9 +783,7 @@
   <tabstop>textEdit</tabstop>
   <tabstop>listItems</tabstop>
  </tabstops>
- <resources>
-  <include location="resources/recource.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>btnClearBase</sender>
