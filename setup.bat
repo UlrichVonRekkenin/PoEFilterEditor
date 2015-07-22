@@ -8,5 +8,5 @@ compil32 /cc setup.iss
 
 REM Run builded file
 cd setup
-"Setup-PoE Easy Filter Script Editor-*.exe"
+"Setup-PoE Easy Filter Script Editor-1.0.3.exe"
 cd ..
