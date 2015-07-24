@@ -73,7 +73,7 @@ begin
     'Specify the folder to store your *.filter files, then click Next.', False, '');
 
   DataDirPage.Add('');
-  DataDirPage.Values[0] := ExpandConstant('{userdocs}\My Games\Path od Exile');
+  DataDirPage.Values[0] := ExpandConstant('{userdocs}\My Games\Path of Exile');
 
 end;
 
